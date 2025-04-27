@@ -1,0 +1,22 @@
+{
+  "name": "sailing-game",
+  "version": "1.0.0",
+  "description": "A top-down 2D sailing game with custom physics mechanics.",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "vite  --host 0.0.0.0",
+    "build": "vite build"
+  },
+  "keywords": [
+    "sailing",
+    "game",
+    "typescript",
+    "html5"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vite": "^6.3.3"
+  }
+}
