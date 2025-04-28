@@ -72,9 +72,9 @@ export class Input {
   }
   
   /**
-   * Update method to be called at the end of each frame
+   * Clear method to be called at the end of each frame
    */
-  update(): void {
+  clear(): void {
     // Clear one-frame state
     this.keysPressed.clear();
     this.keysReleased.clear();

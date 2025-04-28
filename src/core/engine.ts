@@ -34,11 +34,14 @@ export class GameEngine {
     this.lastTime = currentTime;
     this.update(deltaTime);
     this.render();
-    this.input.update();
+    this.input.clear();
     requestAnimationFrame(this.loop.bind(this));
   }
 
   private update(deltaTime: number): void {
+    // Process input for the current state
+    this.stateMachine.processInput(this.input);
+
     // Update game logic, systems, and entities
     this.stateMachine.update(deltaTime);
   }

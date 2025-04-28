@@ -18,6 +18,10 @@ const gameEngine = new GameEngine(canvas, context, {
     states: [
         {
             id: 'mainMenu',
+            inputMappings: [
+                { inputType: 'keyDown', key: 'Enter', action: 'startGame' },
+                { inputType: 'keyDown', key: 'Escape', action: 'exit' }
+            ]
         }
     ],
     transitions: [],
