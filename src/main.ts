@@ -1,4 +1,4 @@
-import { GameEngine } from './game/engine';
+import { GameEngine } from './core/engine';
 
 const canvas = document.createElement('canvas');
 canvas.width = window.innerWidth;
@@ -13,12 +13,14 @@ console.info(`Canvas size: ${canvas.width}x${canvas.height}`);
 
 document.body.appendChild(canvas);
 
-const gameEngine = new GameEngine(canvas, context);
-
-function gameLoop() {
-    gameEngine.tick();
-    requestAnimationFrame(gameLoop);
-}
+const gameEngine = new GameEngine(canvas, context, {
+    initialState: 'mainMenu',
+    states: [
+        {
+            id: 'mainMenu',
+        }
+    ],
+    transitions: [],
+});
 
 gameEngine.start();
-gameLoop();
