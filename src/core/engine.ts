@@ -1,20 +1,16 @@
-// import { Camera } from './camera';
-
 import { Input } from "./input";
 import { StateId, StateMachine, StateMachineConfig } from "./state-machine";
 
 export class GameEngine {
-  private input: Input;
-  // private camera: Camera;
   private stateMachine: StateMachine;
+  private input: Input;
   
   private lastTime: number = 0;
   private isRunning: boolean = false;
 
-  constructor(private canvas: HTMLCanvasElement, private context: CanvasRenderingContext2D, stateConfig: StateMachineConfig) {
-    this.input = new Input();
-    // this.camera = new Camera(canvas.width, canvas.height);
+  constructor(stateConfig: StateMachineConfig) {
     this.stateMachine = new StateMachine(stateConfig);
+    this.input = new Input();
   }
 
   start(): void {
@@ -33,7 +29,6 @@ export class GameEngine {
     const deltaTime = (currentTime - this.lastTime) / 1000; // Convert to seconds
     this.lastTime = currentTime;
     this.update(deltaTime);
-    this.render();
     this.input.clear();
     requestAnimationFrame(this.loop.bind(this));
   }
@@ -44,13 +39,6 @@ export class GameEngine {
 
     // Update game logic, systems, and entities
     this.stateMachine.update(deltaTime);
-  }
-
-  private render(): void {
-    // Render the game world
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    // Example: Render camera view
-    // this.camera.render(this.context);
   }
 
   triggerStateEvent(eventType: string, data?: any): boolean {
