@@ -31,7 +31,9 @@ const gameEngine = new GameEngine({
       ]
     }
   ],
-  transitions: [],
+  transitions: [
+    { from: 'mainMenu', to: 'game', action: 'startGame' } 
+  ],
 });
 
 gameEngine.start();
