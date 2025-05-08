@@ -32,7 +32,7 @@ const gameEngine = new GameEngine({
     }
   ],
   transitions: [
-    { from: 'mainMenu', to: 'game', action: 'startGame' } 
+    { from: 'mainMenu', to: 'game', event: 'startGame' } 
   ],
 });
 
