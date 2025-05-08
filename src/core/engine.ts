@@ -35,6 +35,10 @@ export class GameEngine {
 
   private update(deltaTime: number): void {
     // Process input for the current state
+    /* TODO:
+      Rather than passing the input object, pass a queue full of input events
+      this should provide a better separation between the input source and the processing
+    */
     this.stateMachine.processInput(this.input);
 
     // Update game logic, systems, and entities
